@@ -1,4 +1,4 @@
-# ESTRATEGIAS DE TRADING EN PYTHON
+# ESTRATEGIAS DE TRADING EN PYTHON - ALGOTRADING
 #### Por SaraSTEM
 >~ _Programar tus estrategias en Bolsa es fácil_ ~
 
