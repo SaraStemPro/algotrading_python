@@ -1,4 +1,4 @@
-from strategy_backtesting import strategy_marubozu
+from marubozu_backtesting import strategy_marubozu
 
 
 def results():
