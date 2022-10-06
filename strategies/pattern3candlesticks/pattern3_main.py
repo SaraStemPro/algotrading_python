@@ -1,4 +1,4 @@
-from strategy_backtesting import strategy_pattern3candlesticks
+from pattern3_backtesting import strategy_pattern3candlesticks
 
 
 def results():
