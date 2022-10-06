@@ -101,6 +101,7 @@ Los resultados de la estrategia (con  los parámetros indicados en el archivo ".
 - __Ratio Sharpe (%)__ -> Será 0 si la rentabilidad es negativa.
 
 
+--
 Con toda esta información, puedes hacer pruebas y valorar tus propios resultados en cuestión de segundos. 
 
 **¡Unete al Trading eficiente!**
