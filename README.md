@@ -84,7 +84,7 @@ Adjunto imagen con los periodos y timeframes disponibles:
 - __margin__: Finalmente, ponemos el margen de apalancamiento, en tantos por uno. En mi caso he usado 1:50, es decir, 0,05.
 
 ## Funcionamiento del algoritmo
-Una vez rellenados los apartados anteriores, podemos ejecutar el código de nuestra estrategia desde Visual Studio Code y valorar los resultados obtenidos, que aparecerán en el terminal de la plataforma. Esto lo haremos escribiendo en el terminal:
+Una vez rellenados los apartados anteriores, podemos ejecutar el código del algoritmo desde Visual Studio Code y valorar los resultados obtenidos, que aparecerán en el propio terminal de la plataforma. Esto lo haremos escribiendo en el terminal:
 
 `python3 (nombre-de-la-estrategia)_main.py`
 
