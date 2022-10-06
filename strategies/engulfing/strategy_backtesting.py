@@ -117,16 +117,16 @@ class strategy_engulfing(Strategy):
         stop_sell = self.data.stop_sell
         if not self.position.is_long:
             if signal == 100 and pr_signal > 0:
-                up = cfds_buy[np.argwhere(
+                bull = cfds_buy[np.argwhere(
                     (signal == 100) & (pr_signal > 0))[-1]]
                 if margin*(up[0]*pr_signal) < (self.max_inv_product*capital):
-                    self.buy(size=up[0])
+                    self.buy(size=bull[0])
         if not self.position.is_short:
             if signal == -100 and pr_signal > 0:
-                down = cfds_sell[np.argwhere(
+                bear = cfds_sell[np.argwhere(
                     (signal == -100) & (pr_signal > 0))[-1]]
                 if margin*(down[0]*pr_signal) < (self.max_inv_product*capital):
-                    self.sell(size=down[0])
+                    self.sell(size=bear[0])
         for trade in self.trades:
             if trade.is_long:
                 if self.data.Low < stop_buy:
