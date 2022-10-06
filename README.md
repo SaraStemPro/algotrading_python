@@ -2,7 +2,7 @@
 #### Por SaraSTEM
 >~ _Programar tus estrategias en Bolsa es fácil_ ~
 
-## Descripción de las estrategias
+## Descripción
 
 En este repo encontrarás todas las estrategias de Trading que programo en Python, conocido como Trading Algorítmico. Están compuestas por:
 
@@ -68,7 +68,7 @@ Esto lo hacemos con la ayuda del archivo __"requirements.txt"__. Para su instala
 
 7. Finalmente, en el explorador de la izquierda en Visual Studio Code, podemos __abrir la carpeta__ donde hemos instalado el algoritmo (hemos usado el escritorio) para ver todos los archivos.
 
-## Parámetros de las estrategias: archivo "variables_____.env" 
+## Parámetros de las estrategias: archivo "variables_(nombre-de-la-estrategia).env" 
 
 Una vez instalado todo lo anterior, y abierta la carpeta de la estrategia que queremos probar, vamos a reescribir el archivo __.env__ que viene dentro, fundamental para la correcta ejecución de nuestra estrategia, ya que tendrá todos los datos iniciales necesarios. En concreto, son los siguientes parámetros:
 
@@ -86,19 +86,20 @@ Adjunto imagen con los periodos y timeframes disponibles:
 ## Funcionamiento del algoritmo
 Una vez rellenados los apartados anteriores, podemos ejecutar el código de nuestra estrategia desde Visual Studio Code y valorar los resultados obtenidos, que aparecerán en el terminal de la plataforma. Esto lo haremos escribiendo en el terminal:
 
-`python3 (nombre_de_la_estrategia)_main.py`
+`python3 (nombre-de-la-estrategia)_main.py`
 
 **_Nota:_** Recuerda que para probar otros parámetros en esta estrategia, solo debes modificar el archivo ".env"
 
 ## Resultados
-Los resultados de la estrategia (con  los parámetros indicados en el archivo .env), se pueden ver en el terminal de Visual Studio Code. En concreto, se verá un dataframe con los siguientes datos:
+Los resultados de la estrategia (con  los parámetros indicados en el archivo ".env"), se pueden ver en el terminal de Visual Studio Code. En concreto, se verá un dataframe con los siguientes datos:
 
 - __Rentabilidad (%)__
 - __Número de operaciones__
 - __Ratio de aciertos (%)__
 - __Máximo drawdown (%)__
 - __Volatilidad (%)__
-- __Ratio Sharpe (%)__ (será 0 si la rentabilidad es negativa)
+- __Ratio Sharpe (%)__ -> Será 0 si la rentabilidad es negativa.
+
 
 Con toda esta información, puedes hacer pruebas y valorar tus propios resultados en cuestión de segundos. 
 
