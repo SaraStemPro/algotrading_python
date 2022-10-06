@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-load_dotenv('variables.env')
+load_dotenv('variables_pattern3.env')
 product = os.environ['product']
 period = os.environ['period']
 interval = os.environ['interval']
