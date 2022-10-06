@@ -115,13 +115,13 @@ class strategy_pattern3candlesticks(Strategy):
         stop_buy = self.data.stop_buy
         stop_sell = self.data.stop_sell
         if signal == 100 and pr_signal > 0:
-            alcista = cfds_buy[np.argwhere(
+            bull = cfds_buy[np.argwhere(
                 (signal == 100) & (pr_signal > 0))[-1]]
-            self.buy(size=alcista[0])
+            self.buy(size=bull[0])
         if signal == -100 and pr_signal > 0:
-            bajista = cfds_sell[np.argwhere(
+            bear = cfds_sell[np.argwhere(
                 (signal == -100) & (pr_signal > 0))[-1]]
-            self.sell(size=bajista[0])
+            self.sell(size=bear[0])
         for trade in self.trades:
             if trade.is_long:
                 trade.sl = stop_buy
