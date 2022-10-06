@@ -25,10 +25,8 @@ max_inv_product = float(os.environ['max_inv_product'])
 class strategy_engulfing(Strategy):
     max_inv_product = float(os.environ['max_inv_product'])
 
-
     def init(self):
         pass
-
 
     @staticmethod
     def info():
@@ -97,17 +95,13 @@ class strategy_engulfing(Strategy):
 
         # Investment
         data['cfds_buy'] = 0
+        data['cfds_sell'] = 0
         data = data.dropna()
         for x in range(len(data)):
             if data['pr_signal'][x] > 0 and data['signal'][x] == 100:
                 data['cfds_buy'][x] = math.ceil(
                     (risk_op*capital)/(data['pr_signal'][x]-data['stop_buy'][x]))
-
-        data['cfds_sell'] = 0
-        data = data.dropna()
-        for x in range(len(data)):
-
-            if data['pr_signal'][x] > 0 and data['signal'][x] == -100:
+            elif data['pr_signal'][x] > 0 and data['signal'][x] == -100:
                 data['cfds_sell'][x] = math.ceil(
                     abs((risk_op*capital)/(data['pr_signal'][x]-data['stop_sell'][x])))
 
