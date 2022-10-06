@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-load_dotenv('variables.env')
+load_dotenv('variables_engulfing.env')
 product = os.environ['product']
 period = os.environ['period']
 interval = os.environ['interval']
@@ -19,14 +19,13 @@ risk_op = float(os.environ['risk_op'])
 capital = int(os.environ['capital'])
 commission = float(os.environ['commission'])
 margin = float(os.environ['margin'])
-max_inv_product = float(os.environ['max_inv_product'])
 
 
 class strategy_engulfing(Strategy):
-    max_inv_product = float(os.environ['max_inv_product'])
 
     def init(self):
         pass
+
 
     @staticmethod
     def info():
@@ -115,25 +114,19 @@ class strategy_engulfing(Strategy):
         cfds_sell = self.data.cfds_sell
         stop_buy = self.data.stop_buy
         stop_sell = self.data.stop_sell
-        if not self.position.is_long:
-            if signal == 100 and pr_signal > 0:
-                bull = cfds_buy[np.argwhere(
-                    (signal == 100) & (pr_signal > 0))[-1]]
-                if margin*(up[0]*pr_signal) < (self.max_inv_product*capital):
-                    self.buy(size=bull[0])
-        if not self.position.is_short:
-            if signal == -100 and pr_signal > 0:
-                bear = cfds_sell[np.argwhere(
-                    (signal == -100) & (pr_signal > 0))[-1]]
-                if margin*(down[0]*pr_signal) < (self.max_inv_product*capital):
-                    self.sell(size=bear[0])
+        if signal == 100 and pr_signal > 0:
+            bull = cfds_buy[np.argwhere(
+                (signal == 100) & (pr_signal > 0))[-1]]
+            self.buy(size=bull[0])
+        if signal == -100 and pr_signal > 0:
+            bear = cfds_sell[np.argwhere(
+                (signal == -100) & (pr_signal > 0))[-1]]
+            self.sell(size=bear[0])
         for trade in self.trades:
             if trade.is_long:
-                if self.data.Low < stop_buy:
-                    self.position.close()
+                trade.sl = stop_buy
             if trade.is_short:
-                if self.data.High > stop_sell:
-                    self.position.close()
+                trade.sl = stop_sell
 
 
     def run_bt(data, strategy):
@@ -149,23 +142,3 @@ class strategy_engulfing(Strategy):
         return stats
 
 
-    def walk_forward(data, strategy, warmup_bars, lookback_bars, validation_bars):
-        # The code for Walk Forward Testing
-        stats_master = []
-        for i in range(lookback_bars + warmup_bars, len(data)-validation_bars, validation_bars):
-            training_data = data.iloc[i-lookback_bars-warmup_bars:i]
-            validation_data = data.iloc[i-warmup_bars:i+validation_bars]
-            bt_training = Backtest(training_data, strategy, cash=capital, commission=commission,
-                                   exclusive_orders=False, hedging=True, trade_on_close=True, margin=margin)
-            stats_training = bt_training.optimize(
-                max_inv_product=[0.15, 0.45, 0.1], maximize='Return [%]')
-            print(stats_training._strategy)
-            max_inv_product = stats_training._strategy.max_inv_product
-            bt_validation = Backtest(validation_data, strategy, cash=capital, commission=commission,
-                                     exclusive_orders=False, hedging=True, trade_on_close=True, margin=margin)
-            stats_validation = bt_validation.run(
-                max_inv_product=max_inv_product)
-
-            stats_master.append(stats_validation)
-        
-        return stats_master
