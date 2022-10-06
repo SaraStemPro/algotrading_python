@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-load_dotenv('variables.env')
+load_dotenv('variables_marubozu.env')
 product = os.environ['product']
 period = os.environ['period']
 interval = os.environ['interval']
