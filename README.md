@@ -104,7 +104,7 @@ Los resultados de la estrategia (con  los parámetros indicados en el archivo ".
 - __Calidad__ -> Mejor es la estrategia cuanto mayor sea este número. Lo ideal es superior a 1,6.
 - __Benchmark__ -> Rentabilidad del benchmark en %. Lo ideal es batirlo.
 - __Caída desde el pico__ -> Caída actual del equity en días.
-- __Duración DD__ -> Duración en días del Drawdown.
+- __Duración DD__ -> Duración en días del Drawdown. Con estos dos últimos datos es importante ver que los días son diferentes para comprobar que la estrategia no esté actualmente haciendo el Drawdown.
 
 
 ## Notas finales
