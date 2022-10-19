@@ -77,7 +77,7 @@ Una vez instalado todo lo anterior, y abierta la carpeta de la estrategia que qu
 Adjunto imagen con los periodos y timeframes disponibles:
 ![periodyf](https://www.sarastem.com/wp-content/uploads/2022/06/periodsYF.png)
 - __interval__: Aquí podremos entre comillas el timeframe que queremos para testear nuestra estrategia.
-- __period_bb__: Este es un ejemplo de períodos para un indicador concreto, pero debes añadir tantos períodos como indicadores tenga la estrategia, que ya viene por defecto en el documento.
+- __period_bb__: Este es un ejemplo de períodos para un indicador concreto (en este caso las Bandas de Bollinger), pero debes añadir tantos períodos como indicadores tenga la estrategia, que ya viene por defecto en el documento.
 - __risk_op__: Aquí ponemos el riesgo por operación que queremos asumir. Se pone en tantos por uno. Yo suelo trabajar con un riesgo del 2% sobre el capital en cada operación.
 - __capital__: Aquí ponemos el capital con el que queremos testear nuestra estrategia.
 - __commission__: Poner aquí la comisión a aplicar por operación, en tantos por uno. He usado 0,2% en cada operación.
