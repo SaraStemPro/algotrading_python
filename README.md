@@ -91,14 +91,20 @@ Una vez rellenados los apartados anteriores, podemos ejecutar el código del alg
 **_Nota:_** Recuerda que para probar otros parámetros en esta estrategia, solo debes modificar el archivo ".env"
 
 ## Resultados
-Los resultados de la estrategia (con  los parámetros indicados en el archivo ".env"), se pueden ver en el terminal de Visual Studio Code. En concreto, se verá un dataframe con los siguientes datos:
+Los resultados de la estrategia (con  los parámetros indicados en el archivo ".env"), se pueden ver en el terminal de Visual Studio Code. En concreto, se arrojarán los siguientes datos:
 
-- __Rentabilidad (%)__
-- __Número de operaciones__
+- __Rentabilidad (%)__ 
+- __Rentabilidad anualizada (%)__ -> Para poder comparar diferentes estrategias con diferentes horizontes y timeframes.
+- __Número de operaciones__ -> Número total de operaciones realizadas por la estrategia.
 - __Ratio de aciertos (%)__
-- __Máximo drawdown (%)__
+- __Máximo drawdown (%)__ -> Peor racha de pérdidas.
 - __Volatilidad (%)__
-- __Ratio Sharpe (%)__ -> Será 0 si la rentabilidad es negativa.
+- __Ratio Sharpe, Ratio Sortino y Ratio Calmar__ -> Mejor es la estrategia cuanto mayor sean estos ratios. Serán 0 si la rentabilidad es negativa.
+- __Factor de beneficio__ -> Mejor es la estrategia cuanto mayor sea este número. Lo ideal es superior a 1,5.
+- __Calidad__ -> Mejor es la estrategia cuanto mayor sea este número. Lo ideal es superior a 1,6.
+- __Benchmark__ -> Rentabilidad del benchmark en %. Lo ideal es batirlo.
+- __Caída desde el pico__ -> Caída actual del equity en días.
+- __Duración DD__ -> Duración en días del Drawdown.
 
 
 ## Notas finales
