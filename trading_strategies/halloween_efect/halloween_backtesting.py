@@ -53,7 +53,7 @@ class strategy_halloween(Strategy):
 
         # Close
         for i in range(len(data)):
-            if data['month'][i] == '04' and data['month'][i-1] == '03':
+            if data['month'][i] == '05' and data['month'][i-1] == '04':
                 data['signal'][i] = -100
                 data['pr_signal'][i] = data['Close'][i]
 
