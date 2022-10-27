@@ -14,7 +14,6 @@ load_dotenv('variables_halloween.env')
 product = os.environ['product']
 period = os.environ['period']
 interval = os.environ['interval']
-risk_op = float(os.environ['risk_op'])
 capital = int(os.environ['capital'])
 commission = float(os.environ['commission'])
 margin = float(os.environ['margin'])
